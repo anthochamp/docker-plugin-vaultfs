@@ -1,6 +1,6 @@
 module github.com/anthochamp/docker-plugin-vaultfs
 
-go 1.21
+go 1.23.0
 
 toolchain go1.24.3
 
@@ -11,7 +11,7 @@ require (
 	github.com/hashicorp/vault/api/auth/approle v0.6.0
 	github.com/hashicorp/vault/api/auth/userpass v0.6.0
 	github.com/urfave/cli/v2 v2.27.6
-	golang.org/x/sys v0.29.0
+	golang.org/x/sys v0.33.0
 )
 
 require (
