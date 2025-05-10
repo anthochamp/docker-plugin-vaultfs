@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/google/uuid v1.6.0
-	github.com/hanwen/go-fuse/v2 v2.5.0
+	github.com/hanwen/go-fuse/v2 v2.7.2
 	github.com/hashicorp/vault/api v1.12.2
 	github.com/hashicorp/vault/api/auth/approle v0.6.0
 	github.com/hashicorp/vault/api/auth/userpass v0.6.0
