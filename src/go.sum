@@ -87,6 +87,8 @@ github.com/hashicorp/vault/api/auth/userpass v0.5.0 h1:u//BC15YJviWSpeTlxsmt96FP
 github.com/hashicorp/vault/api/auth/userpass v0.5.0/go.mod h1:TNxl3X6ZaeILi1rfxP/mhGnWuiCiP7SNv2qeZ5aSAMQ=
 github.com/hashicorp/vault/api/auth/userpass v0.6.0 h1:wpiGIbS7CMdqqqs7GNQMO+AQW6DxecGBDTgxaBW5R9Q=
 github.com/hashicorp/vault/api/auth/userpass v0.6.0/go.mod h1:BYLic7wPxTqn35FX0nKU2oCdZYEDJ/UCFQY0zO4AImI=
+github.com/hashicorp/vault/api/auth/userpass v0.9.0 h1:tdIY+xe9O0SAcNY1CK7Wk0ENWNKmmGzJ9+iqZfFBW4I=
+github.com/hashicorp/vault/api/auth/userpass v0.9.0/go.mod h1:W2Cb0z6MjAHkDjGG95mmRGzCETX5Y+O++UBXX/ZlNGc=
 github.com/kylelemons/godebug v0.0.0-20170820004349-d65d576e9348 h1:MtvEpTB6LX3vkb4ax0b5D2DHbNAUsen0Gx5wZoq3lV4=
 github.com/kylelemons/godebug v0.0.0-20170820004349-d65d576e9348/go.mod h1:B69LEHPfb2qLo0BaaOLcbitczOKLWTsrBG9LczfCD4k=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=

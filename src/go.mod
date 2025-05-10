@@ -9,7 +9,7 @@ require (
 	github.com/hanwen/go-fuse/v2 v2.7.2
 	github.com/hashicorp/vault/api v1.16.0
 	github.com/hashicorp/vault/api/auth/approle v0.9.0
-	github.com/hashicorp/vault/api/auth/userpass v0.6.0
+	github.com/hashicorp/vault/api/auth/userpass v0.9.0
 	github.com/urfave/cli/v2 v2.27.6
 	golang.org/x/sys v0.33.0
 )
