@@ -1,0 +1,11 @@
+[Unit]
+Description=Docker plugin for Hashicorp Vault
+Before=docker.service
+After=network.target docker-plugin-vaultfs.socket
+Requires=docker-plugin-vaultfs.socket docker.service
+
+[Service]
+ExecStart=/usr/libexec/docker/docker-plugin-vaultfs
+
+[Install]
+WantedBy=multi-user.target

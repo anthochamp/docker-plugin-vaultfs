@@ -1,0 +1,14 @@
+{
+	"private": true,
+	"scripts": {
+		"markdownlint:check": "markdownlint-cli2",
+		"markdownlint:fix": "markdownlint-cli2 --fix",
+		"postinstall": "is-ci || lefthook install"
+	},
+	"devDependencies": {
+		"lefthook": "1.11.3",
+		"markdownlint-cli2": "0.17.2",
+		"is-ci": "4.1.0",
+		"@ac-essentials/markdownlint-cli2-config": "0.1.0"
+	}
+}

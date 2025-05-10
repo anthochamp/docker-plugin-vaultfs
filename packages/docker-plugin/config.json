@@ -1,0 +1,88 @@
+{
+	"description": "Docker plugin for Hashicorp Vault",
+	"documentation": "https://github.com/anthochamp/docker-plugin-vaultfs/README.md",
+	"interface": {
+		"types": ["docker.volumedriver/1.0", "docker.secretprovider/1.0"],
+		"socket": "vaultfs.sock"
+	},
+	"entrypoint": ["/usr/local/bin/docker-plugin-vaultfs"],
+	"network": {
+		"type": "host"
+	},
+	"propagatedmount": "/var/lib/docker-volumes",
+	"linux": {
+		"capabilities": ["CAP_IPC_LOCK", "CAP_SYS_ADMIN"],
+		"devices": [
+			{
+				"path": "/dev/fuse"
+			}
+		]
+	},
+	"env": [
+		{
+			"name": "DPV_DEBUG",
+			"settable": ["value"],
+			"value": "0"
+		},
+		{
+			"name": "DPV_VERBOSE",
+			"settable": ["value"],
+			"value": "0"
+		},
+		{
+			"name": "DPV_DISABLE_MLOCK",
+			"settable": ["value"],
+			"value": "0"
+		},
+		{
+			"name": "DPV_VAULT_URL",
+			"settable": ["value"],
+			"value": ""
+		},
+		{
+			"name": "DPV_VAULT_DISABLE_REDIRECTS",
+			"settable": ["value"],
+			"value": "0"
+		},
+		{
+			"name": "DPV_VAULT_TLS_SKIP_VERIFY",
+			"settable": ["value"],
+			"value": "0"
+		},
+		{
+			"name": "DPV_AUTH_METHOD",
+			"settable": ["value"],
+			"value": "token"
+		},
+		{
+			"name": "DPV_AUTH_MOUNT",
+			"settable": ["value"],
+			"value": ""
+		},
+		{
+			"name": "DPV_ENGINE_TYPE",
+			"settable": ["value"],
+			"value": "kv"
+		},
+		{
+			"name": "DPV_ENGINE_MOUNT",
+			"settable": ["value"],
+			"value": ""
+		},
+		{
+			"name": "DPV_KV_ENGINE_VERSION",
+			"settable": ["value"],
+			"value": "2"
+		},
+		{
+			"name": "DPV_DISABLE_VOLUME_DRIVER",
+			"settable": ["value"],
+			"value": "0"
+		},
+		{
+			"name": "DPV_DISABLE_SECRET_PROVIDER",
+			"settable": ["value"],
+			"value": "0"
+		}
+	]
+}

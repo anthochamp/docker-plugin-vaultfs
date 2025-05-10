@@ -1,0 +1,8 @@
+[Unit]
+Description=Docker plugin for Hashicorp Vault
+
+[Socket]
+ListenStream=/run/docker/plugins/vault.sock
+
+[Install]
+WantedBy=sockets.target

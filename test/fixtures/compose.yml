@@ -1,0 +1,31 @@
+name: vaultfs
+
+volumes:
+  va:
+    driver: vaultfs
+    driver_opts:
+      auth-method: approle
+      auth-mount: docker-apps
+      auth-role-id: e5e0a789-4317-0a11-8767-07e577b90925
+      auth-secret-id: 419c9aea-c81d-05e6-8854-1303215a4818
+      engine-mount: docker-secrets
+      kv-engine-version: 1
+      secret: nextcloud
+
+  vb:
+    driver: vaultfs
+    driver_opts:
+      auth-method: approle
+      auth-mount: docker-apps
+      auth-role-id: e5e0a789-4317-0a11-8767-07e577b90925
+      auth-secret-id: 419c9aea-c81d-05e6-8854-1303215a4818
+      engine-mount: docker-secrets
+      kv-engine-version: 1
+      secret: nextcloud
+
+services:
+  hello:
+    image: hello-world
+    volumes:
+      - va:/a/
+      - vb:/b/
