@@ -11,7 +11,7 @@ require (
 	github.com/hashicorp/vault/api/auth/approle v0.9.0
 	github.com/hashicorp/vault/api/auth/userpass v0.9.0
 	github.com/urfave/cli/v2 v2.27.6
-	github.com/urfave/cli/v3 v3.3.2
+	github.com/urfave/cli/v3 v3.3.3
 	golang.org/x/sys v0.33.0
 )
 
