@@ -8,7 +8,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/hanwen/go-fuse/v2 v2.7.2
 	github.com/hashicorp/vault/api v1.20.0
-	github.com/hashicorp/vault/api/auth/approle v0.9.0
+	github.com/hashicorp/vault/api/auth/approle v0.10.0
 	github.com/hashicorp/vault/api/auth/userpass v0.10.0
 	github.com/urfave/cli/v3 v3.3.3
 	golang.org/x/sys v0.33.0
