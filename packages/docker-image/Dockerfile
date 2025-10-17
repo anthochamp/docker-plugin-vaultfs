@@ -1,4 +1,4 @@
-FROM golang:alpine3.21@sha256:c8e1680f8002c64ddfba276a3c1f763097cb182402673143a89dcca4c107cf17 AS builder
+FROM golang:alpine3.21@sha256:0c9f3e09a50a6c11714dbc37a6134fd0c474690030ed07d23a61755afd3a812f AS builder
 ARG appVersion
 ARG commitHash
 ARG buildDate
