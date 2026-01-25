@@ -25,7 +25,7 @@ containerId=$(docker --context default create "$imageName" true)
 
 mkdir -p "$buildDir/rootfs"
 
-docker --context default export "$containerId" | sudo -n -- tar --same-owner -p -x -C "$buildDir/rootfs"
+docker --context default export "$containerId" | sudo tar --same-owner -p -x -C "$buildDir/rootfs"
 
 docker --context default rm -vf "$containerId"
 docker --context default rmi "$imageName"
