@@ -9,6 +9,11 @@ import (
 	"strconv"
 )
 
+const (
+	defaultMountMode      = 0o550
+	defaultFieldMountMode = 0o440
+)
+
 type OptDockerVolume struct {
 	MountUId       uint16 `json:","`
 	MountGId       uint16 `json:","`
@@ -29,8 +34,8 @@ func (z OptDockerVolume) CacheId_() string {
 
 func MakeOptDockerVolume() OptDockerVolume {
 	return OptDockerVolume{
-		MountMode:      0550,
-		FieldMountMode: 0440,
+		MountMode:      defaultMountMode,
+		FieldMountMode: defaultFieldMountMode,
 	}
 }
 

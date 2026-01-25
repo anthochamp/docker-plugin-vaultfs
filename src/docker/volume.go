@@ -14,6 +14,7 @@ import (
 	"github.com/anthochamp/docker-plugin-vaultfs/util"
 )
 
+// Volume represents a managed secret volume in the plugin.
 type Volume struct {
 	VolumeConfig
 
@@ -24,6 +25,7 @@ type Volume struct {
 	mountPath       *string
 }
 
+// MountPath returns the mount path of the volume, or an empty string if not set.
 func (z *Volume) MountPath() string {
 	if z.mountPath == nil {
 		return ""
@@ -32,11 +34,13 @@ func (z *Volume) MountPath() string {
 	}
 }
 
+// VolumeConfig holds configuration for a Volume.
 type VolumeConfig struct {
 	Name      string            `json:","`
 	OptDocker options.OptDocker `json:","`
 }
 
+// newVolume creates a new Volume with the given configuration.
 func newVolume(config VolumeConfig) (*Volume, error) {
 	return &Volume{
 		VolumeConfig: config,
@@ -46,6 +50,7 @@ func newVolume(config VolumeConfig) (*Volume, error) {
 	}, nil
 }
 
+// mount mounts the volume, creating secrets and inodes as needed.
 func (z *Volume) mount(fs *Fs, requestId string) error {
 	util.Tracef("Volume[%s].mount(%s)\n", z.Name, requestId)
 
@@ -76,6 +81,7 @@ func (z *Volume) mount(fs *Fs, requestId string) error {
 	return nil
 }
 
+// unmount unmounts the volume for the given request ID, cleaning up resources if needed.
 func (z *Volume) unmount(fs *Fs, requestId string) error {
 	util.Tracef("Volume[%s].unmount(%s)\n", z.Name, requestId)
 
@@ -103,6 +109,7 @@ func (z *Volume) unmount(fs *Fs, requestId string) error {
 	return nil
 }
 
+// forceUnmount forcibly unmounts the volume, cleaning up all resources.
 func (z *Volume) forceUnmount(fs *Fs) error {
 	util.Tracef("Volume[%s].forceUnmount()\n", z.Name)
 

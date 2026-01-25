@@ -16,6 +16,11 @@ import (
 	"github.com/anthochamp/docker-plugin-vaultfs/util"
 )
 
+const (
+	stateDirPerm  = 0o770
+	stateFilePerm = 0o600
+)
+
 type VolumeDriver struct {
 	VolumeDriverConfig
 
@@ -108,7 +113,7 @@ func (z VolumeDriver) DoneChan() chan bool {
 func (z VolumeDriver) backupVolumes() error {
 	util.Tracef("VolumeDriver.backupVolumes()\n")
 
-	if err := os.MkdirAll(path.Dir(z.StateFilePath), 0770); err != nil {
+	if err := os.MkdirAll(path.Dir(z.StateFilePath), stateDirPerm); err != nil {
 		return fmt.Errorf("create directory: %w", err)
 	}
 
@@ -126,7 +131,7 @@ func (z VolumeDriver) backupVolumes() error {
 		return fmt.Errorf("serialize volume backup data: %w", err)
 	}
 
-	return os.WriteFile(z.StateFilePath, fileData, 0600)
+	return os.WriteFile(z.StateFilePath, fileData, stateFilePerm)
 }
 
 func (z VolumeDriver) restoreVolumes() error {

@@ -9,6 +9,7 @@ import (
 	"path"
 )
 
+// OptClientTls holds TLS configuration options for Vault or HTTP clients.
 type OptClientTls struct {
 	Insecure   bool    `json:","`
 	CACertFile *string `json:","`
@@ -17,6 +18,7 @@ type OptClientTls struct {
 	ServerName *string `json:","`
 }
 
+// CacheId_ returns a unique string representing the TLS config for caching purposes.
 func (z OptClientTls) CacheId_() string {
 	r := ""
 
@@ -53,10 +55,12 @@ func (z OptClientTls) CacheId_() string {
 	return r
 }
 
+// MakeOptClientTls returns a new OptClientTls with default values.
 func MakeOptClientTls() OptClientTls {
 	return OptClientTls{}
 }
 
+// NewOptClientTlsFromDockerVolume creates an OptClientTls from Docker volume options.
 func NewOptClientTlsFromDockerVolume(volumeName string, volumeOptions map[string]string, defaultConfig *OptClientTls) (*OptClientTls, error) {
 	var r OptClientTls
 
@@ -75,6 +79,7 @@ func NewOptClientTlsFromDockerVolume(volumeName string, volumeOptions map[string
 	return &r, nil
 }
 
+// NewOptClientTlsFromDockerSecret creates an OptClientTls from Docker secret and service labels.
 func NewOptClientTlsFromDockerSecret(secretName string, secretLabels map[string]string, serviceLabels map[string]string, defaultConfig *OptClientTls) (*OptClientTls, error) {
 	var r OptClientTls
 
@@ -89,16 +94,19 @@ func NewOptClientTlsFromDockerSecret(secretName string, secretLabels map[string]
 	return &r, nil
 }
 
+// UpdateFromDockerVolume updates the OptClientTls from Docker volume options.
 func (z *OptClientTls) UpdateFromDockerVolume(_ string, volumeOptions map[string]string) error {
 	// TODO
 
 	return nil
 }
 
+// UpdateFromDockerSecret updates the OptClientTls from Docker secret and service labels.
 func (z *OptClientTls) UpdateFromDockerSecret(_ string, _ map[string]string, _ map[string]string) error {
 	return errors.New("not implemented")
 }
 
+// Normalize cleans up and standardizes the OptClientTls fields.
 func (z *OptClientTls) Normalize() {
 	if z.CACertFile != nil {
 		if *z.CACertFile == "" {
@@ -132,6 +140,7 @@ func (z *OptClientTls) Normalize() {
 	}
 }
 
+// NormalizeAndValidate normalizes and validates the OptClientTls fields.
 func (z *OptClientTls) NormalizeAndValidate() error {
 	z.Normalize()
 

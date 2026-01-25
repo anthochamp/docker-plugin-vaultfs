@@ -11,6 +11,7 @@ import (
 	"golang.org/x/sys/unix"
 )
 
+// LockMemory locks the process's virtual address space into RAM, preventing swapping.
 func LockMemory() error {
 	err := unix.Mlockall(unix.MCL_FUTURE | unix.MCL_CURRENT)
 

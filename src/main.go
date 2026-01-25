@@ -23,12 +23,15 @@ import (
 	cli "github.com/urfave/cli/v3"
 )
 
+const defaultPluginSocketMode = 0o600
+
 var (
 	appVersion string
 	commitHash string
 	buildDate  string
 )
 
+// main is the entry point for the Docker plugin for Hashicorp Vault.
 func main() {
 	currentUser, _ := user.Current()
 	currentGroup, _ := user.LookupGroupId(strconv.Itoa(os.Getgid()))
@@ -166,8 +169,8 @@ func main() {
 				Category:    "Docker Plugin",
 				Name:        "plugin-socket-mode",
 				Sources:     cli.EnvVars(constants.EnvVarsPrefix + "PLUGIN_SOCKET_MODE"),
-				Value:       0600,
-				DefaultText: "0600",
+				Value:       defaultPluginSocketMode,
+				DefaultText: fmt.Sprintf("0%o", defaultPluginSocketMode),
 				Usage:       "Docker Plugin Unix socket access modes",
 			},
 			&cli.BoolFlag{
@@ -240,6 +243,7 @@ func main() {
 	}
 }
 
+// start initializes and runs the Docker plugin, handling signals and cleanup.
 func start(ctx context.Context, c *cli.Command, defaultOptDocker options.OptDocker) error {
 	var arg string
 

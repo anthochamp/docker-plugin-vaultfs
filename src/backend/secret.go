@@ -4,6 +4,7 @@
 
 package backend
 
+// Secret represents a generic secret with lifecycle and data retrieval methods.
 type Secret interface {
 	Close()
 

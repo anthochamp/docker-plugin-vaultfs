@@ -68,7 +68,8 @@ func (z *Fs) Mount() error {
 	}
 
 	// Create filesystem mount directory
-	if err := os.MkdirAll(z.MountDir, 0550); err != nil {
+	const fsMountDirPerm = 0o550
+	if err := os.MkdirAll(z.MountDir, fsMountDirPerm); err != nil {
 		return fmt.Errorf("create FS mount directory: %w", err)
 	}
 

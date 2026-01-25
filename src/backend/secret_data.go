@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// SecretData represents the data of a secret, including metadata and key-value access.
 type SecretData interface {
 	UniqueId() string
 
