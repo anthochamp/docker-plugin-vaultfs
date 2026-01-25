@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: © 2024 Anthony Champagne <dev@anthonychampagne.fr>
+// SPDX-FileCopyrightText: © 2024 - 2026 Anthony Champagne <dev@anthonychampagne.fr>
 //
 // SPDX-License-Identifier: AGPL-3.0-only
 
@@ -194,9 +194,15 @@ func (z *FsInodeSecret) Lookup(ctx context.Context, name string, out *fuse.Entry
 		return nil, syscall.ENOENT
 	}
 
+	child.inodeSecretField.lock.RLock()
 	out.Attr.Mode = child.inodeSecretField.AttrMode()
 	out.Attr.Owner = child.inodeSecretField.AttrOwner()
+	out.Attr.Size = uint64(len(child.inodeSecretField.data))
 	out.SetTimes(child.inodeSecretField.ATime, child.inodeSecretField.MTime(), child.inodeSecretField.CTime())
+	child.inodeSecretField.lock.RUnlock()
+
+	out.SetEntryTimeout(1 * time.Second)
+	out.SetAttrTimeout(1 * time.Second)
 
 	return child.inode, fs.OK
 }
@@ -207,6 +213,7 @@ func (z *FsInodeSecret) Getattr(ctx context.Context, fh fs.FileHandle, out *fuse
 	out.Mode = z.AttrMode()
 	out.Owner = z.AttrOwner()
 	out.SetTimes(z.ATime, z.MTime(), z.CTime())
+	out.SetTimeout(1 * time.Second)
 
 	return fs.OK
 }
