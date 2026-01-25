@@ -79,7 +79,7 @@ func NewVaultSecretDataFromKVSecret(kvSecret vaultApi.KVSecret) (*VaultSecretDat
 					if err != nil {
 						return nil, fmt.Errorf("unable to convert %s value %v to int", constants.AppName+"-cache-ttl", cacheTtli)
 					}
-					cacheTtl = time.Duration(cacheTtli)
+					cacheTtl = time.Duration(cacheTtli) * time.Second
 				}
 			} else {
 				data[".metadata-"+k] = v.(string)
