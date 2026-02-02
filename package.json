@@ -6,7 +6,7 @@
 		"postinstall": "is-ci || lefthook install"
 	},
 	"devDependencies": {
-		"lefthook": "2.0.13",
+		"lefthook": "2.0.16",
 		"markdownlint-cli2": "0.20.0",
 		"is-ci": "4.1.0",
 		"@ac-essentials/markdownlint-cli2-config": "0.1.0"
