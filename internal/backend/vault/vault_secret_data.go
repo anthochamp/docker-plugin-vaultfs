@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/constants"
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/constants"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 	"github.com/google/uuid"
 	vaultApi "github.com/hashicorp/vault/api"
 )

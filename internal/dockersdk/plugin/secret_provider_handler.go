@@ -7,7 +7,7 @@ package dockerSdkPlugin
 import (
 	"net/http"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 )
 
 type SecretProvider interface {

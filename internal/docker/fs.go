@@ -12,7 +12,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 	"github.com/hanwen/go-fuse/v2/fs"
 	"github.com/hanwen/go-fuse/v2/fuse"
 )

@@ -11,8 +11,8 @@ import (
 	"os"
 	"sync"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/options"
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/options"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 	"github.com/google/uuid"
 	vaultApi "github.com/hashicorp/vault/api"
 	vaultApiAuthApprole "github.com/hashicorp/vault/api/auth/approle"

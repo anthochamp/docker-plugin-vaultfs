@@ -10,9 +10,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/backend"
-	"github.com/anthochamp/docker-plugin-vaultfs/options"
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/backend"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/options"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 	vaultApi "github.com/hashicorp/vault/api"
 )
 

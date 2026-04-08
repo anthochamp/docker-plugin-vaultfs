@@ -1,4 +1,4 @@
 remotes:
   - git_url: git@github.com:anthochamp/dev-toolbox
     configs:
-      - config-presets/lefthook/common.yaml
+      - config-presets/lefthook/go.yaml

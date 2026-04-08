@@ -15,11 +15,11 @@ import (
 	"strconv"
 	"syscall"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/constants"
-	"github.com/anthochamp/docker-plugin-vaultfs/docker"
-	dockerSdkPlugin "github.com/anthochamp/docker-plugin-vaultfs/dockersdk/plugin"
-	"github.com/anthochamp/docker-plugin-vaultfs/options"
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/constants"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/docker"
+	dockerSdkPlugin "github.com/anthochamp/docker-plugin-vaultfs/internal/dockersdk/plugin"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/options"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 	cli "github.com/urfave/cli/v3"
 )
 

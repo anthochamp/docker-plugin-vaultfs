@@ -7,9 +7,9 @@ package docker
 import (
 	"errors"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/backend"
-	backendVault "github.com/anthochamp/docker-plugin-vaultfs/backend/vault"
-	"github.com/anthochamp/docker-plugin-vaultfs/options"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/backend"
+	backendVault "github.com/anthochamp/docker-plugin-vaultfs/internal/backend/vault"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/options"
 )
 
 type SecretConfig struct {

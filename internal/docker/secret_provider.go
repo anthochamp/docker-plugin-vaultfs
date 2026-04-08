@@ -7,9 +7,9 @@ package docker
 import (
 	"fmt"
 
-	dockerSdkPlugin "github.com/anthochamp/docker-plugin-vaultfs/dockersdk/plugin"
-	"github.com/anthochamp/docker-plugin-vaultfs/options"
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	dockerSdkPlugin "github.com/anthochamp/docker-plugin-vaultfs/internal/dockersdk/plugin"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/options"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 )
 
 type SecretProvider struct {

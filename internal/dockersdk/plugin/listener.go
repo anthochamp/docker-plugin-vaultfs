@@ -16,7 +16,7 @@ import (
 	"sync"
 	"syscall"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 )
 
 type CleanupFn func() error

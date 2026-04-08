@@ -9,9 +9,9 @@ import (
 	"path"
 	"sync"
 
-	"github.com/anthochamp/docker-plugin-vaultfs/backend"
-	"github.com/anthochamp/docker-plugin-vaultfs/options"
-	"github.com/anthochamp/docker-plugin-vaultfs/util"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/backend"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/options"
+	"github.com/anthochamp/docker-plugin-vaultfs/internal/util"
 )
 
 // Volume represents a managed secret volume in the plugin.
