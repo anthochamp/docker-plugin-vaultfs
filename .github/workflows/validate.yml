@@ -7,5 +7,48 @@ on:
   pull_request:
 
 jobs:
-  validate:
-    uses: anthochamp/dev-toolbox/.github/workflows/go-validate.yml@main
+  common-lint:
+    uses: anthochamp/dev-toolbox/.github/workflows/common-lint.yml@main
+    with:
+      node-package-manager: none
+
+  go-lint:
+    uses: anthochamp/dev-toolbox/.github/workflows/go-lint.yml@main
+
+  go-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    services:
+      vault:
+        image: hashicorp/vault:latest
+        ports:
+          - 8200:8200
+        env:
+          VAULT_DEV_ROOT_TOKEN_ID: myroot
+          VAULT_DEV_LISTEN_ADDRESS: 0.0.0.0:8200
+          VAULT_DISABLE_MLOCK: "true"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Wait for Vault to be ready
+        run: |
+          for i in $(seq 1 30); do
+            curl -fsSL http://127.0.0.1:8200/v1/sys/health && break
+            sleep 1
+          done
+
+      - name: Execute unit tests
+        run: go test ./...
+
+      - name: Execute integration tests
+        env:
+          VAULT_ADDR: http://127.0.0.1:8200
+          VAULT_TOKEN: myroot
+        run: go test -tags integration ./...
