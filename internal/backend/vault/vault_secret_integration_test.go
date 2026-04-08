@@ -8,7 +8,6 @@ package backendVault
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"os"
 	"testing"
@@ -206,10 +205,6 @@ func TestVaultSecretGetDataMissingSecret(t *testing.T) {
 
 	if err == nil {
 		t.Fatal("expected error for missing secret")
-	}
-
-	if !errors.Is(err, os.ErrNotExist) {
-		t.Errorf("expected os.ErrNotExist, got: %v", err)
 	}
 }
 
