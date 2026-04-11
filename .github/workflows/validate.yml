@@ -8,12 +8,12 @@ on:
 
 jobs:
   common-lint:
-    uses: anthochamp/dev-toolbox/.github/workflows/common-lint.yml@main
+    uses: anthochamp/dev-toolbox/.github/workflows/common-lint.yml@f18c705206817a77f896fc94a931b6f0f03b3f09 # main
     with:
       node-package-manager: none
 
   go-lint:
-    uses: anthochamp/dev-toolbox/.github/workflows/go-lint.yml@main
+    uses: anthochamp/dev-toolbox/.github/workflows/go-lint.yml@f18c705206817a77f896fc94a931b6f0f03b3f09 # main
 
   go-test:
     runs-on: ubuntu-latest

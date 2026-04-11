@@ -6,7 +6,7 @@ on:
 
 jobs:
   validate:
-    uses: anthochamp/dev-toolbox/.github/workflows/go-validate.yml@main
+    uses: anthochamp/dev-toolbox/.github/workflows/go-validate.yml@f18c705206817a77f896fc94a931b6f0f03b3f09 # main
 
   publish:
     needs: validate
